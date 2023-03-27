@@ -1,28 +1,25 @@
 import React from 'react';
-import s from './Contacts.module.css';
+import PropTypes from 'prop-types';
 
-export const ContactsForm = ({ contacts, onDelete }) => {
+import { List, ListItem, Button } from './Contacts.styled';
+
+function ContactList({ contacts, onDelete }) {
   return (
-    <>
-      {' '}
-      {contacts.length !== 0 && (
-        <ul className={s.contList}>
-          {contacts.map(({ name, tel, id }) => (
-            <li className={s.contItem} key={name}>
-              <p className={s.contInfo}>
-                {name}: {tel}
-              </p>
-              <button
-                className={s.contBtn}
-                type="button"
-                onClick={() => onDelete(id)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
+    <List>
+      {contacts.map(({ id, name, number }, idx) => (
+        <ListItem key={id}>
+          <div>{idx + 1}</div>
+          {name}: {number}
+          <Button onClick={() => onDelete(id)}>delete</Button>
+        </ListItem>
+      ))}
+    </List>
   );
+}
+
+export default ContactList;
+
+ContactList.propeTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  onDelete: PropTypes.func,
 };

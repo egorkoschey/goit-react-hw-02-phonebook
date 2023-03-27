@@ -1,16 +1,16 @@
 import React from 'react';
-import s from './Filter.module.css';
+import PropTypes from 'prop-types';
 
-export const Filter = ({ value, filterName }) => (
-  <div>
-    <label>
-      <h4>Find contact by name</h4>
-      <input
-        className={s.filterInput}
-        type="text"
-        value={value}
-        onChange={filterName}
-      ></input>
-    </label>
-  </div>
+import { Input } from './Filter.styled';
+
+const Filter = ({ value, onChange }) => (
+  <label>
+    <Input type="text" value={value} onChange={onChange} />
+  </label>
 );
+export default Filter;
+
+Filter.propeTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};

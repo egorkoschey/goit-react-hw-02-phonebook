@@ -10,7 +10,7 @@ function ContactList({ contacts, onDelete }) {
         <ListItem key={id}>
           <div>{idx + 1}</div>
           {name}: {number}
-          <Button onClick={() => onDelete(id)}>delete</Button>
+          <Button onClick={() => onDelete(id)}>Delete</Button>
         </ListItem>
       ))}
     </List>

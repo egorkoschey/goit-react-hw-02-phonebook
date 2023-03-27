@@ -5,7 +5,6 @@ export const Label = styled.label`
   margin: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 export const Input = styled(Field)`
